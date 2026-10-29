@@ -1,0 +1,77 @@
+{
+  "$defs": {
+    "DataClass": {
+      "enum": [
+        "PUBLIC",
+        "PERSONAL",
+        "CONFIDENTIAL",
+        "SECRET",
+        "PROHIBITED"
+      ],
+      "title": "DataClass",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "data_classes": {
+      "items": {
+        "$ref": "#/$defs/DataClass"
+      },
+      "title": "Data Classes",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "language_hint": {
+      "default": "auto",
+      "enum": [
+        "ta",
+        "en",
+        "mixed",
+        "auto"
+      ],
+      "title": "Language Hint",
+      "type": "string"
+    },
+    "request_id": {
+      "format": "uuid",
+      "title": "Request Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "task_id": {
+      "anyOf": [
+        {
+          "format": "uuid",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Task Id"
+    },
+    "text": {
+      "minLength": 1,
+      "title": "Text",
+      "type": "string"
+    },
+    "voice_profile": {
+      "minLength": 1,
+      "title": "Voice Profile",
+      "type": "string"
+    }
+  },
+  "required": [
+    "text",
+    "voice_profile"
+  ],
+  "title": "SynthesisRequest",
+  "type": "object"
+}

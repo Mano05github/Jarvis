@@ -1,0 +1,24 @@
+{"schema_version":"1.0","utterance_id":"ta_conversation_dev_001","language":"ta","text":"வணக்கம், நான் ஜார்விஸ். இன்று உங்களுக்கு எப்படி உதவலாம்?","category":"conversation","split":"development"}
+{"schema_version":"1.0","utterance_id":"ta_conversation_held_001","language":"ta","text":"கவலைப்படாதீர்கள், ஒவ்வொரு படியாகவும் சேர்ந்து முடிப்போம்.","category":"conversation","split":"held-out"}
+{"schema_version":"1.0","utterance_id":"ta_command_dev_001","language":"ta","text":"கணிப்பானைத் திறக்கிறேன்.","category":"command","split":"development"}
+{"schema_version":"1.0","utterance_id":"ta_command_held_001","language":"ta","text":"குறிப்பேட்டை மூடுவதற்கு உங்கள் அனுமதி தேவை.","category":"command","split":"held-out"}
+{"schema_version":"1.0","utterance_id":"ta_technical_dev_001","language":"ta","text":"சோதனை வெற்றிகரமாக முடிந்தது; எந்தப் பிழையும் இல்லை.","category":"technical","split":"development"}
+{"schema_version":"1.0","utterance_id":"ta_technical_held_001","language":"ta","text":"இணையம் இல்லாமல் உள்ளூர் மாதிரி இயங்குகிறது.","category":"technical","split":"held-out"}
+{"schema_version":"1.0","utterance_id":"ta_number_dev_001","language":"ta","text":"இன்று அக்டோபர் பதின்மூன்றாம் தேதி, நேரம் மாலை ஆறு மணி முப்பது நிமிடம்.","category":"number-date","split":"development"}
+{"schema_version":"1.0","utterance_id":"ta_number_held_001","language":"ta","text":"மின்கலம் எழுபத்தைந்து சதவீதம் உள்ளது.","category":"number-date","split":"held-out"}
+{"schema_version":"1.0","utterance_id":"en_conversation_dev_001","language":"en","text":"Hello, I am Jarvis. How can I help you today?","category":"conversation","split":"development"}
+{"schema_version":"1.0","utterance_id":"en_conversation_held_001","language":"en","text":"Take your time; we can work through it together.","category":"conversation","split":"held-out"}
+{"schema_version":"1.0","utterance_id":"en_command_dev_001","language":"en","text":"Opening the calculator now.","category":"command","split":"development"}
+{"schema_version":"1.0","utterance_id":"en_command_held_001","language":"en","text":"I need your approval before closing Visual Studio Code.","category":"command","split":"held-out"}
+{"schema_version":"1.0","utterance_id":"en_technical_dev_001","language":"en","text":"The offline benchmark completed without errors.","category":"technical","split":"development"}
+{"schema_version":"1.0","utterance_id":"en_technical_held_001","language":"en","text":"The local speech model is ready for evaluation.","category":"technical","split":"held-out"}
+{"schema_version":"1.0","utterance_id":"en_number_dev_001","language":"en","text":"Today is October thirteenth, and the time is six thirty P M.","category":"number-date","split":"development"}
+{"schema_version":"1.0","utterance_id":"en_number_held_001","language":"en","text":"The battery level is seventy-five percent.","category":"number-date","split":"held-out"}
+{"schema_version":"1.0","utterance_id":"mixed_conversation_dev_001","language":"mixed","text":"சரி, no problem. நாம இதை step by step முடிக்கலாம்.","category":"conversation","split":"development"}
+{"schema_version":"1.0","utterance_id":"mixed_conversation_held_001","language":"mixed","text":"நீங்க ready ஆனதும் சொல்லுங்க, நான் இங்கேதான் இருக்கேன்.","category":"conversation","split":"held-out"}
+{"schema_version":"1.0","utterance_id":"mixed_command_dev_001","language":"mixed","text":"Calculator open பண்றேன்.","category":"command","split":"development"}
+{"schema_version":"1.0","utterance_id":"mixed_command_held_001","language":"mixed","text":"Visual Studio Code close பண்ண approval வேணும்.","category":"command","split":"held-out"}
+{"schema_version":"1.0","utterance_id":"mixed_technical_dev_001","language":"mixed","text":"Offline benchmark successfully complete ஆயிடுச்சு.","category":"technical","split":"development"}
+{"schema_version":"1.0","utterance_id":"mixed_technical_held_001","language":"mixed","text":"Local model ready; latency report இப்போ save ஆகுது.","category":"technical","split":"held-out"}
+{"schema_version":"1.0","utterance_id":"mixed_number_dev_001","language":"mixed","text":"Meeting evening six thirtyக்கு start ஆகும்.","category":"number-date","split":"development"}
+{"schema_version":"1.0","utterance_id":"mixed_number_held_001","language":"mixed","text":"Battery seventy-five percent இருக்கு.","category":"number-date","split":"held-out"}

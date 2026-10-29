@@ -1,0 +1,15 @@
+root ::= accepted | clarify | unknown
+accepted ::= "{" ws "\"s\"" ws ":" ws "0" ws "," ws "\"a\"" ws ":" ws act ws "," ws "\"i\"" ws ":" ws positive-int ws "," ws "\"p\"" ws ":" ws slots ws "," ws "\"r\"" ws ":" ws references ws "," ws "\"m\"" ws ":" ws marker ws "," ws "\"q\"" ws ":" ws "0" ws "}" ws
+clarify ::= "{" ws "\"s\"" ws ":" ws "1" ws "," ws "\"a\"" ws ":" ws act ws "," ws "\"i\"" ws ":" ws nullable-int ws "," ws "\"p\"" ws ":" ws slots ws "," ws "\"r\"" ws ":" ws references ws "," ws "\"m\"" ws ":" ws marker ws "," ws "\"q\"" ws ":" ws clarification-reason ws "}" ws
+unknown ::= "{" ws "\"s\"" ws ":" ws "2" ws "," ws "\"a\"" ws ":" ws act ws "," ws "\"i\"" ws ":" ws "null" ws "," ws "\"p\"" ws ":" ws "{" ws "}" ws "," ws "\"r\"" ws ":" ws "[" ws "]" ws "," ws "\"m\"" ws ":" ws marker ws "," ws "\"q\"" ws ":" ws clarification-reason ws "}" ws
+act ::= [0-5]
+marker ::= "0" | [1-9] | "1" [0-5]
+clarification-reason ::= [1-6]
+nullable-int ::= "null" | positive-int
+positive-int ::= [1-9] [0-9]*
+slots ::= "{" ws "}" | "{" ws slot (ws "," ws slot)* ws "}"
+slot ::= json-string ws ":" ws positive-int
+references ::= "[" ws "]" | "[" ws positive-int (ws "," ws positive-int)* ws "]"
+json-string ::= "\"" json-char* "\""
+json-char ::= [^"\\\x7F\x00-\x1F] | "\\" (["\\/bfnrt] | "u" [0-9a-fA-F]{4})
+ws ::= [ \t\n\r]*

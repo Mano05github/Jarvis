@@ -1,0 +1,50 @@
+{
+  "$defs": {
+    "DataClass": {
+      "enum": [
+        "PUBLIC",
+        "PERSONAL",
+        "CONFIDENTIAL",
+        "SECRET",
+        "PROHIBITED"
+      ],
+      "title": "DataClass",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "category": {
+      "minLength": 1,
+      "title": "Category",
+      "type": "string"
+    },
+    "content": {
+      "minLength": 1,
+      "title": "Content",
+      "type": "string"
+    },
+    "data_class": {
+      "$ref": "#/$defs/DataClass",
+      "default": "PERSONAL"
+    },
+    "reason": {
+      "minLength": 1,
+      "title": "Reason",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "category",
+    "content",
+    "reason"
+  ],
+  "title": "MemoryProposal",
+  "type": "object"
+}

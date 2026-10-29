@@ -1,0 +1,39 @@
+schema_version = "1.0"
+profile_id = "jarvis-original-tanglish-v1"
+primary_language = "mixed"
+supported_languages = ["ta", "en", "mixed"]
+
+[delivery]
+register = "warm-low-to-mid"
+energy = "calm-confident"
+pace = "measured-conversational"
+friendliness = "attentive-and-approachable"
+wit = "light-and-contextual"
+consonants = "clear-not-theatrical"
+
+[code_switching]
+preserve_tamil = true
+preserve_english_terms = true
+allow_tamil_script = true
+allow_romanized_tamil = true
+require_single_voice_identity = true
+forbid_forced_pure_tamil_translation = true
+
+[identity]
+must_be_original = true
+public_figure_imitation = false
+actor_performance_imitation = false
+fictional_character_voice_replica = false
+reference_traits_only = [
+  "calm competence",
+  "friendly precision",
+  "subtle situational wit",
+  "concise acknowledgements",
+]
+
+[acceptance]
+minimum_tamil_clarity = 4.0
+minimum_mixed_clarity = 3.5
+maximum_p95_real_time_factor = 1.0
+maximum_peak_rss_bytes = 2147483648
+maximum_short_response_ttfa_seconds = 1.2

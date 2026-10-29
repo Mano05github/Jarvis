@@ -1,0 +1,20 @@
+[runtime]
+python = "3.12.10"
+offline_speech = true
+heavy_inference_concurrency = 1
+
+[storage]
+root = "D:/Projects/Jarvis/storage"
+
+[speech]
+sample_rate_hz = 16000
+push_to_talk = true
+wake_word_enabled = false
+languages = ["ta", "en"]
+
+[privacy]
+retain_normal_audio = false
+retain_benchmark_audio = "explicit-opt-in"
+retain_session_content = false
+retain_audit_metadata = true
+

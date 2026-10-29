@@ -1,0 +1,168 @@
+{
+  "$defs": {
+    "ClarificationReason": {
+      "enum": [
+        "unclear_speech",
+        "missing_target",
+        "ambiguous_target",
+        "missing_scope",
+        "no_pending_operation",
+        "conflicting_commands"
+      ],
+      "title": "ClarificationReason",
+      "type": "string"
+    },
+    "CriticalMarker": {
+      "enum": [
+        "negation",
+        "correction",
+        "cancellation",
+        "affirmation"
+      ],
+      "title": "CriticalMarker",
+      "type": "string"
+    },
+    "DecoderSource": {
+      "enum": [
+        "deterministic",
+        "qwen"
+      ],
+      "title": "DecoderSource",
+      "type": "string"
+    },
+    "DialogueAct": {
+      "enum": [
+        "command",
+        "correction",
+        "cancel",
+        "confirm",
+        "query",
+        "status"
+      ],
+      "title": "DialogueAct",
+      "type": "string"
+    },
+    "SemanticStatus": {
+      "enum": [
+        "accepted",
+        "clarify",
+        "unknown"
+      ],
+      "title": "SemanticStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Validated semantic interpretation with explicitly zero execution authority.",
+  "properties": {
+    "authority": {
+      "const": "none",
+      "default": "none",
+      "title": "Authority",
+      "type": "string"
+    },
+    "clarification_reason": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ClarificationReason"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "critical_markers": {
+      "items": {
+        "$ref": "#/$defs/CriticalMarker"
+      },
+      "title": "Critical Markers",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "decoder_source": {
+      "$ref": "#/$defs/DecoderSource"
+    },
+    "dialogue_act": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/DialogueAct"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "emitted_monotonic_ns": {
+      "minimum": 0,
+      "title": "Emitted Monotonic Ns",
+      "type": "integer"
+    },
+    "intent": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Intent"
+    },
+    "references": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 8,
+      "title": "References",
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "session_id": {
+      "format": "uuid",
+      "title": "Session Id",
+      "type": "string"
+    },
+    "slot_candidate_ids": {
+      "additionalProperties": {
+        "type": "integer"
+      },
+      "maxProperties": 16,
+      "title": "Slot Candidate Ids",
+      "type": "object"
+    },
+    "slots": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "maxProperties": 16,
+      "title": "Slots",
+      "type": "object"
+    },
+    "status": {
+      "$ref": "#/$defs/SemanticStatus"
+    },
+    "utterance_id": {
+      "format": "uuid",
+      "title": "Utterance Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "session_id",
+    "utterance_id",
+    "emitted_monotonic_ns",
+    "status",
+    "decoder_source"
+  ],
+  "title": "IntentEnvelope",
+  "type": "object"
+}

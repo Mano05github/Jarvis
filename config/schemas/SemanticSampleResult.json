@@ -1,0 +1,164 @@
+{
+  "$defs": {
+    "SemanticInterpretation": {
+      "additionalProperties": false,
+      "properties": {
+        "comparison_text": {
+          "title": "Comparison Text",
+          "type": "string"
+        },
+        "confidence": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Confidence",
+          "type": "number"
+        },
+        "critical_markers": {
+          "default": [],
+          "items": {
+            "enum": [
+              "affirmation",
+              "cancellation",
+              "correction",
+              "negation"
+            ],
+            "type": "string"
+          },
+          "title": "Critical Markers",
+          "type": "array"
+        },
+        "dialogue_act": {
+          "enum": [
+            "command",
+            "query",
+            "correction",
+            "cancel",
+            "confirm"
+          ],
+          "title": "Dialogue Act",
+          "type": "string"
+        },
+        "intent": {
+          "title": "Intent",
+          "type": "string"
+        },
+        "needs_clarification": {
+          "default": false,
+          "title": "Needs Clarification",
+          "type": "boolean"
+        },
+        "policy": {
+          "enum": [
+            "none",
+            "allow",
+            "confirm",
+            "deny"
+          ],
+          "title": "Policy",
+          "type": "string"
+        },
+        "referents": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Referents",
+          "type": "array"
+        },
+        "semantic_text": {
+          "title": "Semantic Text",
+          "type": "string"
+        },
+        "slots": {
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "title": "Slots",
+          "type": "object"
+        }
+      },
+      "required": [
+        "comparison_text",
+        "semantic_text",
+        "dialogue_act",
+        "intent",
+        "policy",
+        "confidence"
+      ],
+      "title": "SemanticInterpretation",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "dialogue_act_match": {
+      "title": "Dialogue Act Match",
+      "type": "boolean"
+    },
+    "input_text": {
+      "title": "Input Text",
+      "type": "string"
+    },
+    "intent_match": {
+      "title": "Intent Match",
+      "type": "boolean"
+    },
+    "interpretation": {
+      "$ref": "#/$defs/SemanticInterpretation"
+    },
+    "markers_preserved": {
+      "title": "Markers Preserved",
+      "type": "boolean"
+    },
+    "policy_match": {
+      "title": "Policy Match",
+      "type": "boolean"
+    },
+    "referents_match": {
+      "title": "Referents Match",
+      "type": "boolean"
+    },
+    "slots_match": {
+      "title": "Slots Match",
+      "type": "boolean"
+    },
+    "strict_semantic_success": {
+      "title": "Strict Semantic Success",
+      "type": "boolean"
+    },
+    "utterance_id": {
+      "title": "Utterance Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "utterance_id",
+    "input_text",
+    "interpretation",
+    "dialogue_act_match",
+    "intent_match",
+    "slots_match",
+    "referents_match",
+    "markers_preserved",
+    "policy_match",
+    "strict_semantic_success"
+  ],
+  "title": "SemanticSampleResult",
+  "type": "object"
+}

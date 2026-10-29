@@ -1,0 +1,85 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "average_log_probability": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Average Log Probability"
+    },
+    "confidence": {
+      "anyOf": [
+        {
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Confidence"
+    },
+    "hypothesis_id": {
+      "minLength": 1,
+      "title": "Hypothesis Id",
+      "type": "string"
+    },
+    "language": {
+      "default": "unknown",
+      "enum": [
+        "ta",
+        "en",
+        "mixed",
+        "other",
+        "unknown"
+      ],
+      "title": "Language",
+      "type": "string"
+    },
+    "no_speech_probability": {
+      "anyOf": [
+        {
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "No Speech Probability"
+    },
+    "rank": {
+      "maximum": 7,
+      "minimum": 0,
+      "title": "Rank",
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "text": {
+      "title": "Text",
+      "type": "string"
+    }
+  },
+  "required": [
+    "hypothesis_id",
+    "rank",
+    "text"
+  ],
+  "title": "TranscriptHypothesis",
+  "type": "object"
+}

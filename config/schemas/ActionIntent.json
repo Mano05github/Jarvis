@@ -1,0 +1,89 @@
+{
+  "$defs": {
+    "DataClass": {
+      "enum": [
+        "PUBLIC",
+        "PERSONAL",
+        "CONFIDENTIAL",
+        "SECRET",
+        "PROHIBITED"
+      ],
+      "title": "DataClass",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "action": {
+      "minLength": 1,
+      "title": "Action",
+      "type": "string"
+    },
+    "data_classes": {
+      "items": {
+        "$ref": "#/$defs/DataClass"
+      },
+      "title": "Data Classes",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "destination": {
+      "minLength": 1,
+      "title": "Destination",
+      "type": "string"
+    },
+    "expected_effect": {
+      "additionalProperties": true,
+      "title": "Expected Effect",
+      "type": "object"
+    },
+    "intent_id": {
+      "format": "uuid",
+      "title": "Intent Id",
+      "type": "string"
+    },
+    "purpose": {
+      "minLength": 1,
+      "title": "Purpose",
+      "type": "string"
+    },
+    "resource": {
+      "minLength": 1,
+      "title": "Resource",
+      "type": "string"
+    },
+    "reversible": {
+      "title": "Reversible",
+      "type": "boolean"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "task_id": {
+      "format": "uuid",
+      "title": "Task Id",
+      "type": "string"
+    },
+    "verification": {
+      "additionalProperties": true,
+      "title": "Verification",
+      "type": "object"
+    }
+  },
+  "required": [
+    "task_id",
+    "action",
+    "resource",
+    "purpose",
+    "destination",
+    "data_classes",
+    "reversible",
+    "expected_effect",
+    "verification"
+  ],
+  "title": "ActionIntent",
+  "type": "object"
+}

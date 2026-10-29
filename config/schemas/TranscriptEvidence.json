@@ -1,0 +1,305 @@
+{
+  "$defs": {
+    "EntityCandidate": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_id": {
+          "exclusiveMinimum": 0,
+          "title": "Candidate Id",
+          "type": "integer"
+        },
+        "canonical_value": {
+          "minLength": 1,
+          "title": "Canonical Value",
+          "type": "string"
+        },
+        "evidence": {
+          "items": {
+            "$ref": "#/$defs/EvidenceSpan"
+          },
+          "maxItems": 8,
+          "minItems": 1,
+          "title": "Evidence",
+          "type": "array"
+        },
+        "schema_version": {
+          "const": "1.0",
+          "default": "1.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "score": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Score",
+          "type": "number"
+        },
+        "slot": {
+          "minLength": 1,
+          "title": "Slot",
+          "type": "string"
+        }
+      },
+      "required": [
+        "candidate_id",
+        "slot",
+        "canonical_value",
+        "score",
+        "evidence"
+      ],
+      "title": "EntityCandidate",
+      "type": "object"
+    },
+    "EvidenceSpan": {
+      "additionalProperties": false,
+      "properties": {
+        "end_char": {
+          "exclusiveMinimum": 0,
+          "title": "End Char",
+          "type": "integer"
+        },
+        "hypothesis_id": {
+          "minLength": 1,
+          "title": "Hypothesis Id",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": "1.0",
+          "default": "1.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "start_char": {
+          "minimum": 0,
+          "title": "Start Char",
+          "type": "integer"
+        },
+        "text": {
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "hypothesis_id",
+        "start_char",
+        "end_char",
+        "text"
+      ],
+      "title": "EvidenceSpan",
+      "type": "object"
+    },
+    "LanguageSpan": {
+      "additionalProperties": false,
+      "properties": {
+        "end_char": {
+          "minimum": 0,
+          "title": "End Char",
+          "type": "integer"
+        },
+        "language": {
+          "enum": [
+            "ta",
+            "en",
+            "other",
+            "unknown"
+          ],
+          "title": "Language",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": "1.0",
+          "default": "1.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "start_char": {
+          "minimum": 0,
+          "title": "Start Char",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "language",
+        "start_char",
+        "end_char"
+      ],
+      "title": "LanguageSpan",
+      "type": "object"
+    },
+    "PrivacyMode": {
+      "enum": [
+        "WATCHING",
+        "PRIVATE",
+        "SLEEPING"
+      ],
+      "title": "PrivacyMode",
+      "type": "string"
+    },
+    "TranscriptHypothesis": {
+      "additionalProperties": false,
+      "properties": {
+        "average_log_probability": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Average Log Probability"
+        },
+        "confidence": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Confidence"
+        },
+        "hypothesis_id": {
+          "minLength": 1,
+          "title": "Hypothesis Id",
+          "type": "string"
+        },
+        "language": {
+          "default": "unknown",
+          "enum": [
+            "ta",
+            "en",
+            "mixed",
+            "other",
+            "unknown"
+          ],
+          "title": "Language",
+          "type": "string"
+        },
+        "no_speech_probability": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "No Speech Probability"
+        },
+        "rank": {
+          "maximum": 7,
+          "minimum": 0,
+          "title": "Rank",
+          "type": "integer"
+        },
+        "schema_version": {
+          "const": "1.0",
+          "default": "1.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "hypothesis_id",
+        "rank",
+        "text"
+      ],
+      "title": "TranscriptHypothesis",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Untrusted acoustic/text evidence; never an executable command.",
+  "properties": {
+    "authority": {
+      "const": "none",
+      "default": "none",
+      "title": "Authority",
+      "type": "string"
+    },
+    "emitted_monotonic_ns": {
+      "minimum": 0,
+      "title": "Emitted Monotonic Ns",
+      "type": "integer"
+    },
+    "engine_id": {
+      "minLength": 1,
+      "title": "Engine Id",
+      "type": "string"
+    },
+    "entity_candidates": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/EntityCandidate"
+      },
+      "maxItems": 32,
+      "title": "Entity Candidates",
+      "type": "array"
+    },
+    "hypotheses": {
+      "items": {
+        "$ref": "#/$defs/TranscriptHypothesis"
+      },
+      "maxItems": 8,
+      "minItems": 1,
+      "title": "Hypotheses",
+      "type": "array"
+    },
+    "language_spans": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/LanguageSpan"
+      },
+      "title": "Language Spans",
+      "type": "array"
+    },
+    "privacy_mode": {
+      "$ref": "#/$defs/PrivacyMode"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "session_id": {
+      "format": "uuid",
+      "title": "Session Id",
+      "type": "string"
+    },
+    "truncated": {
+      "default": false,
+      "title": "Truncated",
+      "type": "boolean"
+    },
+    "utterance_id": {
+      "format": "uuid",
+      "title": "Utterance Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "session_id",
+    "utterance_id",
+    "emitted_monotonic_ns",
+    "engine_id",
+    "hypotheses",
+    "privacy_mode"
+  ],
+  "title": "TranscriptEvidence",
+  "type": "object"
+}

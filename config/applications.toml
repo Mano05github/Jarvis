@@ -1,0 +1,22 @@
+schema_version = "1.0"
+
+[[applications]]
+application_id = "notepad"
+executable = "notepad.exe"
+aliases = ["notepad", "notepad.exe"]
+allowed_actions = ["app.open", "app.close"]
+process_names = ["notepad.exe"]
+
+[[applications]]
+application_id = "calculator"
+executable = "calc.exe"
+aliases = ["calculator", "calc", "calc.exe"]
+allowed_actions = ["app.open", "app.close"]
+process_names = ["calculatorapp.exe", "calculator.exe"]
+
+[[applications]]
+application_id = "visual-studio-code"
+executable = "code.exe"
+aliases = ["visual studio code", "vs code", "vscode", "code", "code.exe"]
+allowed_actions = ["app.open", "app.close"]
+process_names = ["code.exe"]

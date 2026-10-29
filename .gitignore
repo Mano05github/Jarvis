@@ -1,0 +1,24 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+/pytest-temp-*/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+build/
+dist/
+*.egg-info/
+**/bin/
+**/obj/
+
+# Large, machine-local Jarvis assets and generated benchmark data.
+storage/*
+!storage/README.md
+
+# Local secrets and developer overrides.
+.env
+*.local.toml
+

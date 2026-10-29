@@ -1,0 +1,4 @@
+{"case_id":"chat_bored","category":"companion","input_text":"Hey Jarvis, enaku romba bore adikudhu","expected_modes":["chat"],"context":{}}
+{"case_id":"clarify_close","category":"clarification","input_text":"Jarvis, adha close pannidu","expected_modes":["clarify"],"context":{"references":[]}}
+{"case_id":"plan_notepad","category":"planning","input_text":"Jarvis, notepad-ah open pannu","expected_modes":["plan"],"context":{"available_actions":["app.open"]}}
+{"case_id":"cancel_current","category":"cancellation","input_text":"Illa vendam Jarvis, current request-ah cancel pannu","expected_modes":["cancel"],"context":{"pending_request":true}}

@@ -1,0 +1,56 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "audio_input": {
+      "default": false,
+      "title": "Audio Input",
+      "type": "boolean"
+    },
+    "json_schema": {
+      "default": false,
+      "title": "Json Schema",
+      "type": "boolean"
+    },
+    "maximum_context_tokens": {
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Maximum Context Tokens"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "streaming": {
+      "default": false,
+      "title": "Streaming",
+      "type": "boolean"
+    },
+    "structured_output": {
+      "default": false,
+      "title": "Structured Output",
+      "type": "boolean"
+    },
+    "usage_reporting": {
+      "default": false,
+      "title": "Usage Reporting",
+      "type": "boolean"
+    },
+    "vision": {
+      "default": false,
+      "title": "Vision",
+      "type": "boolean"
+    }
+  },
+  "title": "ModelCapabilities",
+  "type": "object"
+}

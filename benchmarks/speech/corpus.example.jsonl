@@ -1,0 +1,4 @@
+{"schema_version":"1.0","utterance_id":"en_open_notepad_001","language":"en","reference":"Open Notepad","intent_label":"app.open","condition":"quiet-near","split":"development","audio_file":"raw/en_open_notepad_001.wav","consented":true,"retain_until":null}
+{"schema_version":"1.0","utterance_id":"ta_open_browser_001","language":"ta","reference":"உலாவியைத் திற","intent_label":"app.open","condition":"quiet-near","split":"development","audio_file":"raw/ta_open_browser_001.wav","consented":true,"retain_until":null}
+{"schema_version":"1.0","utterance_id":"mixed_volume_001","language":"mixed","reference":"Jarvis volume ஐ முப்பதாக வை","intent_label":"media.volume","condition":"normal-room","split":"held-out","audio_file":"raw/mixed_volume_001.wav","consented":true,"retain_until":null}
+

@@ -1,0 +1,13 @@
+schema_version = "1.0"
+default_profile = "offline-fixture"
+fallback_order = []
+
+[routing]
+companion = "offline-fixture"
+planner = "offline-fixture"
+
+[profiles.offline-fixture]
+provider = "fake"
+model = "fixture"
+remote = false
+timeout_seconds = 5

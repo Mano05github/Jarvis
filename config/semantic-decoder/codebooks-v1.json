@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "status": {
+    "0": "accepted",
+    "1": "clarify",
+    "2": "unknown"
+  },
+  "dialogue_acts": {
+    "0": "command",
+    "1": "correction",
+    "2": "cancel",
+    "3": "confirm",
+    "4": "query",
+    "5": "status"
+  },
+  "intents": {
+    "1": "app.open",
+    "2": "app.close",
+    "3": "file.search",
+    "4": "assistant.cancel",
+    "5": "approval.cancel",
+    "6": "approval.confirm",
+    "7": "system.status"
+  },
+  "references": {
+    "1": "previous_intent",
+    "2": "active_app",
+    "3": "previous_app",
+    "4": "selected_item",
+    "5": "pending_operation",
+    "6": "visible_results"
+  },
+  "marker_bits": {
+    "1": "negation",
+    "2": "correction",
+    "4": "cancellation",
+    "8": "affirmation"
+  },
+  "clarification_reasons": {
+    "0": "none",
+    "1": "unclear_speech",
+    "2": "missing_target",
+    "3": "ambiguous_target",
+    "4": "missing_scope",
+    "5": "no_pending_operation",
+    "6": "conflicting_commands"
+  },
+  "required_slots": {
+    "app.open": ["app"],
+    "app.close": ["app"],
+    "file.search": ["location", "sort"]
+  }
+}

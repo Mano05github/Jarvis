@@ -1,0 +1,4 @@
+{"schema_version":"1.0","utterance_id":"ta_greeting_001","language":"ta","text":"வணக்கம், நான் ஜார்விஸ்.","category":"conversation","split":"development"}
+{"schema_version":"1.0","utterance_id":"en_status_001","language":"en","text":"The benchmark has completed successfully.","category":"technical","split":"development"}
+{"schema_version":"1.0","utterance_id":"mixed_status_001","language":"mixed","text":"Jarvis, benchmark report ஐ திற.","category":"command","split":"held-out"}
+

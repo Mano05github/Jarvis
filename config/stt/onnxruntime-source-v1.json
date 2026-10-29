@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "source_id": "microsoft-onnxruntime-win-x64-cpu-1.31.1",
+  "publisher": "Microsoft",
+  "repository_url": "https://github.com/microsoft/onnxruntime",
+  "release_tag": "v1.31.1",
+  "release_url": "https://github.com/microsoft/onnxruntime/releases/tag/v1.31.1",
+  "published_at": "2026-10-26T19:29:51Z",
+  "source_commit": "6af1a932e2286d5c58166085d24c68783033edee",
+  "asset_name": "onnxruntime-win-x64-1.31.1.zip",
+  "asset_url": "https://github.com/microsoft/onnxruntime/releases/download/v1.31.1/onnxruntime-win-x64-1.31.1.zip",
+  "asset_bytes": 82929944,
+  "asset_sha256": "5869e26bb25314375f2d5ef1877e3ea06b1543d6c710e6e4a1ec2f7177ab4b2c",
+  "platform": "windows-x64",
+  "execution_provider": "cpu",
+  "license_spdx": "MIT",
+  "license_path": "LICENSE",
+  "license_git_sha": "48bc6bb4996ac924359e8e28b9ae88970e5ed3fc",
+  "license_bytes": 1073,
+  "license_url": "https://raw.githubusercontent.com/microsoft/onnxruntime/v1.31.1/LICENSE",
+  "archive_root": "onnxruntime-win-x64-1.31.1",
+  "required_archive_members": [
+    "onnxruntime-win-x64-1.31.1/LICENSE",
+    "onnxruntime-win-x64-1.31.1/include/onnxruntime_c_api.h",
+    "onnxruntime-win-x64-1.31.1/lib/onnxruntime.dll",
+    "onnxruntime-win-x64-1.31.1/lib/onnxruntime.lib"
+  ],
+  "status": "inspected"
+}

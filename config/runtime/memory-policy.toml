@@ -1,0 +1,75 @@
+schema_version = "1.0"
+
+[policy]
+protected_floor_mib = 4096
+soft_floor_mib = 5120
+emergency_floor_mib = 3584
+commit_reserve_mib = 1024
+safety_multiplier = 1.25
+maximum_heavy_workers = 1
+queue_limit = 2
+queue_timeout_seconds = 15.0
+monitor_interval_seconds = 0.5
+recovery_hysteresis_seconds = 30.0
+
+# Only certified profiles may receive a runtime lease. The speech and local-LLM
+# values are provisional until their repeatable peak-memory certification passes.
+[[workers]]
+name = "windows-broker"
+certified = true
+peak_private_mib = 256
+hard_process_limit_mib = 384
+hard_job_limit_mib = 384
+active_process_limit = 1
+heavy = false
+evictable = false
+eviction_rank = 100
+idle_timeout_seconds = 300.0
+
+[[workers]]
+name = "native-stt-candidate"
+certified = false
+peak_private_mib = 512
+hard_process_limit_mib = 640
+hard_job_limit_mib = 640
+active_process_limit = 1
+heavy = true
+evictable = true
+eviction_rank = 40
+idle_timeout_seconds = 30.0
+
+[[workers]]
+name = "faster-whisper"
+certified = false
+peak_private_mib = 2304
+hard_process_limit_mib = 3072
+hard_job_limit_mib = 3072
+active_process_limit = 1
+heavy = true
+evictable = true
+eviction_rank = 30
+idle_timeout_seconds = 60.0
+
+[[workers]]
+name = "mms-vits-tamil"
+certified = false
+peak_private_mib = 2048
+hard_process_limit_mib = 2560
+hard_job_limit_mib = 2560
+active_process_limit = 1
+heavy = true
+evictable = true
+eviction_rank = 20
+idle_timeout_seconds = 45.0
+
+[[workers]]
+name = "qwen-local"
+certified = false
+peak_private_mib = 5440
+hard_process_limit_mib = 7168
+hard_job_limit_mib = 7168
+active_process_limit = 1
+heavy = true
+evictable = true
+eviction_rank = 10
+idle_timeout_seconds = 30.0

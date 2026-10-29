@@ -1,0 +1,7 @@
+root ::= "{" ws "\"i\"" ws ":" ws positive-int ws "," ws "\"p\"" ws ":" ws slots ws "}" ws
+positive-int ::= [1-9] [0-9]*
+slots ::= "{" ws "}" | "{" ws slot (ws "," ws slot)* ws "}"
+slot ::= json-string ws ":" ws positive-int
+json-string ::= "\"" json-char* "\""
+json-char ::= [^"\\\x7F\x00-\x1F] | "\\" (["\\/bfnrt] | "u" [0-9a-fA-F]{4})
+ws ::= [ \t\n\r]*

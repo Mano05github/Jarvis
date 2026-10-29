@@ -1,0 +1,24 @@
+schema_version = "1.0"
+default_profile = "azure-primary"
+fallback_order = ["local-ollama"]
+
+[routing]
+companion = "azure-primary"
+planner = "azure-primary"
+private_local = "local-ollama"
+
+[profiles.azure-primary]
+provider = "azure_openai"
+endpoint = "https://your-resource.openai.azure.com"
+deployment = "your-deployment-name"
+api_version = "your-supported-api-version"
+credential_ref = "jarvis/llm/azure-primary"
+remote = true
+timeout_seconds = 30
+
+[profiles.local-ollama]
+provider = "ollama"
+endpoint = "http://127.0.0.1:11434"
+model = "your-local-model"
+remote = false
+timeout_seconds = 120

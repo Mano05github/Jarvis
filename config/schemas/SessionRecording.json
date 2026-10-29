@@ -1,0 +1,155 @@
+{
+  "additionalProperties": false,
+  "description": "One legacy or v2 recording observation from a recording session.",
+  "properties": {
+    "active_rms_dbfs": {
+      "title": "Active Rms Dbfs",
+      "type": "number"
+    },
+    "archived_previous": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Archived Previous"
+    },
+    "audio_sha256": {
+      "anyOf": [
+        {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Audio Sha256"
+    },
+    "channels": {
+      "title": "Channels",
+      "type": "integer"
+    },
+    "duration_seconds": {
+      "exclusiveMinimum": 0,
+      "title": "Duration Seconds",
+      "type": "number"
+    },
+    "frames": {
+      "exclusiveMinimum": 0,
+      "title": "Frames",
+      "type": "integer"
+    },
+    "path": {
+      "minLength": 1,
+      "title": "Path",
+      "type": "string"
+    },
+    "peak_dbfs": {
+      "title": "Peak Dbfs",
+      "type": "number"
+    },
+    "recorded_at_utc": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Recorded At Utc"
+    },
+    "recording_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Recording Id"
+    },
+    "rms_dbfs": {
+      "title": "Rms Dbfs",
+      "type": "number"
+    },
+    "sample_rate_hz": {
+      "title": "Sample Rate Hz",
+      "type": "integer"
+    },
+    "sample_width_bytes": {
+      "title": "Sample Width Bytes",
+      "type": "integer"
+    },
+    "scenario_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Scenario Id"
+    },
+    "spoken_reference": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Spoken Reference"
+    },
+    "turn_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Turn Id"
+    },
+    "utterance_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Utterance Id"
+    }
+  },
+  "required": [
+    "path",
+    "duration_seconds",
+    "sample_rate_hz",
+    "channels",
+    "sample_width_bytes",
+    "frames",
+    "rms_dbfs",
+    "active_rms_dbfs",
+    "peak_dbfs"
+  ],
+  "title": "SessionRecording",
+  "type": "object"
+}

@@ -1,0 +1,45 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "emitted_monotonic_ns": {
+      "minimum": 0,
+      "title": "Emitted Monotonic Ns",
+      "type": "integer"
+    },
+    "played_ms": {
+      "minimum": 0,
+      "title": "Played Ms",
+      "type": "integer"
+    },
+    "request_id": {
+      "format": "uuid",
+      "title": "Request Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "state": {
+      "enum": [
+        "started",
+        "progress",
+        "ended",
+        "cancelled",
+        "failed"
+      ],
+      "title": "State",
+      "type": "string"
+    }
+  },
+  "required": [
+    "request_id",
+    "emitted_monotonic_ns",
+    "state",
+    "played_ms"
+  ],
+  "title": "PlaybackEvent",
+  "type": "object"
+}

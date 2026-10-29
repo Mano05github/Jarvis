@@ -1,0 +1,41 @@
+schema_version = "1.0"
+default_profile = "azure-primary"
+fallback_order = ["ollama-local"]
+
+[routing]
+companion = "azure-primary"
+planner = "azure-primary"
+private = "ollama-local"
+
+# Store the key with: jarvis llm-secret-set --reference jarvis/llm/azure-primary
+[profiles.azure-primary]
+provider = "azure_openai"
+endpoint = "https://YOUR-RESOURCE.openai.azure.com"
+deployment = "YOUR-DEPLOYMENT"
+api_version = "YOUR-SUPPORTED-API-VERSION"
+credential_ref = "jarvis/llm/azure-primary"
+remote = true
+timeout_seconds = 30
+
+[profiles.openai-primary]
+provider = "openai"
+model = "OWNER-SELECTED-MODEL"
+credential_ref = "jarvis/llm/openai-primary"
+remote = true
+timeout_seconds = 30
+
+[profiles.anthropic-primary]
+provider = "anthropic"
+model = "OWNER-SELECTED-MODEL"
+api_version = "OWNER-SELECTED-API-VERSION"
+credential_ref = "jarvis/llm/anthropic-primary"
+remote = true
+timeout_seconds = 30
+
+# Any local server exposing /v1/chat/completions can use this shape.
+[profiles.ollama-local]
+provider = "ollama"
+endpoint = "http://127.0.0.1:11434/v1"
+model = "OWNER-INSTALLED-MODEL"
+remote = false
+timeout_seconds = 60
