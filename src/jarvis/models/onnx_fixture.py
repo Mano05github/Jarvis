@@ -13,6 +13,12 @@ from pydantic import BaseModel, ConfigDict, Field, HttpUrl, model_validator
 from jarvis.models.registry import sha256_file
 
 
+def _sha256_canonical_text_file(path: Path) -> str:
+    """Hash text bytes after normalizing platform-specific line endings."""
+    content = path.read_bytes().replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    return hashlib.sha256(content).hexdigest()
+
+
 class OnnxRuntimeSourceManifest(BaseModel):
     model_config = ConfigDict(extra="forbid", frozen=True)
 
@@ -183,7 +189,7 @@ def verify_tiny_onnx_fixture(
             errors.append("tiny ONNX fixture model sha256 mismatch")
     if not generator.is_file():
         errors.append(f"tiny ONNX fixture generator not found: {generator}")
-    elif sha256_file(generator) != manifest.generator_sha256:
+    elif _sha256_canonical_text_file(generator) != manifest.generator_sha256:
         errors.append("tiny ONNX fixture generator sha256 mismatch")
     return errors
 

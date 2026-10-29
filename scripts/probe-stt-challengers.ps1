@@ -12,7 +12,7 @@ $projectRoot = Split-Path -Parent $PSScriptRoot
 $python = Join-Path $projectRoot ".venv\Scripts\python.exe"
 $probeRoot = Join-Path $projectRoot "storage\models\stt\candidate-probes"
 $jsonPath = Join-Path $probeRoot "probe-summary.json"
-$reportPath = Join-Path $projectRoot "deliverables\research\stt-challenger-probe.md"
+$reportPath = Join-Path $projectRoot "storage\benchmarks\reports\stt-challenger-probe.md"
 $uvCache = Join-Path $projectRoot "storage\cache\uv"
 $hfCache = Join-Path $projectRoot "storage\cache\huggingface"
 

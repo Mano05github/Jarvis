@@ -16,6 +16,11 @@ jobs:
         with:
           enable-cache: true
       - run: uv sync --all-groups
+      - run: uv run jarvis storage-init
+      - run: cmake -S native/Jarvis.SpeechRuntime -B storage/build/native/Jarvis.SpeechRuntime
+      - run: cmake --build storage/build/native/Jarvis.SpeechRuntime --config Release --parallel 4
+      - run: ctest --test-dir storage/build/native/Jarvis.SpeechRuntime -C Release --output-on-failure
+      - run: dotnet build native/Jarvis.WindowsBroker/Jarvis.WindowsBroker.csproj --configuration Release --nologo --configfile NuGet.Config
       - run: uv run ruff check .
       - run: uv run ruff format --check .
       - run: uv run mypy

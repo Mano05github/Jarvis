@@ -43,8 +43,6 @@ Constrained Windows broker -> evidence -> audit
 
 The language model cannot call a shell or directly control Windows. Plans must pass deterministic validation and policy checks before the broker can consider them. Cancellation, corrections, expiry, replay prevention, and approval binding are enforced outside the model.
 
-See the [Phase 1 threat model](deliverables/architecture/phase-1-threat-model.md) and the [architecture decisions](deliverables/decisions) for the detailed security rationale.
-
 ## Requirements
 
 - Windows 10 or Windows 11
@@ -112,12 +110,10 @@ Speech acquisition and benchmarking scripts live under [`scripts`](scripts). The
 | --- | --- |
 | [`src/jarvis`](src/jarvis) | Python control core, contracts, runtime, LLM gateway, storage, and evaluation tooling |
 | [`native`](native) | Constrained .NET Windows broker and dependency-free native speech runtime |
-| [`config`](config) | Versioned policies, schemas, application registry, runtime limits, and provider examples |
+| [`config`](config) | Versioned policies, application registry, runtime limits, evaluation fixtures, and provider examples |
 | [`tests`](tests) | Unit and contract test suites |
 | [`scripts`](scripts) | Reproducible setup, acquisition, inspection, benchmark, and verification workflows |
 | [`benchmarks`](benchmarks) | Versioned benchmark manifests, prompts, and recording guidance |
-| [`deliverables`](deliverables) | Architecture, plans, ADRs, research notes, checkpoints, and reports |
-| [`assets`](assets) | Approved project reference assets |
 | [`storage`](storage) | Ignored machine-local models, recordings, datasets, secrets, caches, and results |
 
 ## Configuration and secrets
@@ -130,18 +126,10 @@ Copy [`.env.example`](.env.example) only if you need explicit path overrides. Ne
 
 The trusted Python control core, typed contracts, simulation-only text sessions, provider gateway, metadata-only audit log, Windows broker boundary, native speech contracts, and speech evaluation harnesses are implemented. Real desktop execution remains deliberately disabled while authorization and native-runtime certification continue.
 
-The most useful current references are:
-
-- [Project audit](deliverables/reports/project-audit-2026-10-17.md)
-- [Research-backed next-phase plan](deliverables/plans/research-backed-next-plan-2026-10-18.md)
-- [Native STT containment and character plan](deliverables/plans/native-stt-containment-and-character-plan-2026-10-26.md)
-- [Governed native speech certification](deliverables/reports/governed-native-speech-certification-2026-10-28.md)
-- [Deliverables index](deliverables/README.md)
-
 ## Development principles
 
 1. Models propose; deterministic code decides.
 2. Every consequential action is typed, scoped, reviewable, and revocable.
 3. Privacy policy is enforced before provider routing.
 4. Missing evidence, expired approval, ambiguous intent, or resource pressure causes a safe refusal.
-5. Benchmarks and architectural claims must be reproducible from versioned manifests and reports.
+5. Benchmarks and architectural claims must be reproducible from versioned configuration, fixtures, and source.

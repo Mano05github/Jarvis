@@ -3,47 +3,30 @@
 from __future__ import annotations
 
 import ast
-import json
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 EXPECTED_DIRECTORIES = (
     "apps",
-    "artifacts",
-    "assets/character-references",
     "benchmarks/speech",
     "config/base",
-    "config/schemas",
     "config/examples",
-    "deliverables/architecture",
-    "deliverables/checkpoints",
-    "deliverables/decisions",
-    "deliverables/manifests",
-    "deliverables/plans",
-    "deliverables/reports",
-    "deliverables/research",
     "native",
-    "policies/immutable",
-    "policies/privacy",
-    "policies/tests",
     "scripts",
     "services",
     "src/jarvis",
     "storage",
     "tests/contract",
-    "tests/integration",
-    "tests/security",
     "tests/unit",
     "tools",
 )
 EXPECTED_FILES = (
+    ".gitignore",
     ".python-version",
+    "README.md",
     "pyproject.toml",
-    "deliverables/plans/phase-1-plan.md",
-    "deliverables/plans/project-structure.md",
-    "deliverables/architecture/Jarvis_Architecture_and_Implementation_Plan.docx",
-    "deliverables/plans/Jarvis_Implementation_Sprint_Plan_v2.xlsx",
+    "uv.lock",
 )
 
 
@@ -68,22 +51,12 @@ def verify() -> list[str]:
     for relative in EXPECTED_FILES:
         if not (ROOT / relative).is_file():
             errors.append(f"missing file: {relative}")
-    if (ROOT / "docs").exists():
-        errors.append("deprecated docs directory exists; use deliverables")
-
     for path in python_files():
         try:
             ast.parse(path.read_text(encoding="utf-8-sig"), filename=str(path))
         except (OSError, SyntaxError, UnicodeError) as error:
             errors.append(f"invalid Python source {path.relative_to(ROOT)}: {error}")
 
-    manifest_path = ROOT / "deliverables/manifests/deliverables_manifest.json"
-    try:
-        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-        if manifest.get("architecture_version") != "1.7":
-            errors.append("deliverables manifest does not report architecture 1.7")
-    except (OSError, ValueError) as error:
-        errors.append(f"invalid deliverables manifest: {error}")
     return errors
 
 

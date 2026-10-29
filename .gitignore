@@ -3,6 +3,7 @@ __pycache__/
 *.py[cod]
 .pytest_cache/
 /pytest-temp-*/
+/pytest-cache-*/
 .mypy_cache/
 .ruff_cache/
 .coverage
@@ -13,6 +14,13 @@ dist/
 *.egg-info/
 **/bin/
 **/obj/
+
+# Generated exports and internal project archives kept outside the public repository.
+/artifacts/
+/config/schemas/
+/deliverables/
+/assets/character-references/
+/tools/generate_jarvis_deliverables.py
 
 # Large, machine-local Jarvis assets and generated benchmark data.
 storage/*

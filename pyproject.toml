@@ -49,11 +49,7 @@ fail_under = 85
 exclude = [
   ".venv",
   ".pytest_cache",
-  "artifacts",
-  "assets",
-  "deliverables",
   "storage",
-  "tools/generate_jarvis_deliverables.py",
 ]
 line-length = 100
 target-version = "py312"

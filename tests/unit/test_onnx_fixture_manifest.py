@@ -94,6 +94,30 @@ def test_tiny_fixture_is_deterministic_and_hash_bound(tmp_path: Path) -> None:
     assert verify_tiny_onnx_fixture(manifest, PROJECT_ROOT, storage_root=tmp_path) == []
 
 
+def test_tiny_fixture_generator_hash_normalizes_line_endings(tmp_path: Path) -> None:
+    manifest = load_tiny_onnx_fixture_manifest(FIXTURE)
+    source = (PROJECT_ROOT / manifest.generator_file).read_bytes()
+    canonical = source.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    project_root = tmp_path / "project"
+    generator = project_root / manifest.generator_file
+    generator.parent.mkdir(parents=True)
+    generator.write_bytes(canonical.replace(b"\n", b"\r\n"))
+
+    loaded = runpy.run_path(str(PROJECT_ROOT / manifest.generator_file))
+    fixture_root = tmp_path / "storage/models/stt/fixtures" / manifest.fixture_id
+    fixture_root.mkdir(parents=True)
+    (fixture_root / manifest.model_file).write_bytes(loaded["generate_model"]())
+
+    assert (
+        verify_tiny_onnx_fixture(
+            manifest,
+            project_root,
+            storage_root=tmp_path / "storage",
+        )
+        == []
+    )
+
+
 def test_tiny_fixture_verifier_rejects_changed_model_and_generator(tmp_path: Path) -> None:
     manifest = load_tiny_onnx_fixture_manifest(FIXTURE)
     fixture_root = tmp_path / "models/stt/fixtures" / manifest.fixture_id
